@@ -1,0 +1,6 @@
+{
+  "name": "Musicfy AI",
+  "description": "Complete AI music creation platform powered by AndroMida AI, featuring AI Song Generation, Sing in Your Voice Studio, AI Voice Cloning, and Universe Model multi-song remix & music video generator.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

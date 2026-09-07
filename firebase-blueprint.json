@@ -1,0 +1,61 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Musicfy AI user account details and plan info",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "plan": { "type": "string" },
+        "freeUsesRemaining": { "type": "number" },
+        "totalSuccessfulJobs": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "email", "plan"]
+    },
+    "SongProject": {
+      "title": "SongProject",
+      "description": "User created music projects, tracks, and lyrics",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectType": { "type": "string" },
+        "title": { "type": "string" },
+        "originalLanguage": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "title"]
+    },
+    "VoiceProfile": {
+      "title": "VoiceProfile",
+      "description": "User consent-verified AI voice clone profiles",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "consentVerified": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "name"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/User" },
+      "description": "User profile collection keyed by user ID"
+    },
+    "/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/SongProject" },
+      "description": "User music projects collection"
+    },
+    "/voiceProfiles/{profileId}": {
+      "schema": { "$ref": "#/entities/VoiceProfile" },
+      "description": "User voice clone profiles collection"
+    }
+  }
+}
